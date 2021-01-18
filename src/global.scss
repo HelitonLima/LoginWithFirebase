@@ -51,6 +51,7 @@ ion-item{
     --color: var(--ion-color-primary);
     --border-color: var(--ion-color-primary);
     width: 100%;
+    --highlight-background: var(--ion-color-primary-contrast);
 }
 ion-button{
     width: 100%;
