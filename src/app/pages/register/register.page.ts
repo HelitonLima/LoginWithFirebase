@@ -1,6 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/intercafes/user';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -12,14 +13,17 @@ export class RegisterPage implements OnInit {
   public userRegister: User = {}
   public confirmEmail: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() { }
 
-  async register(){
-    if(this.confirmEmail != this.userRegister.email){
+  async register() {
+    if (this.confirmEmail != this.userRegister.email) {
       console.log('the emails arent same');
-      return ;
+      return;
     }
 
     try {
@@ -28,6 +32,10 @@ export class RegisterPage implements OnInit {
     } catch (error) {
       console.error();
     }
+  }
+
+  toLogin(){
+    this.navCtrl.navigateBack('login');
   }
 
 }
